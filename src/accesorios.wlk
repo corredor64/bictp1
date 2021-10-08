@@ -18,7 +18,7 @@ object morralDeBici{
 }
 /*
 Se deben agregar los nuevos accesorios como objetos manteniendo el polimorfismo con 
-los demas objetos. Todos deben entender los mismos mensajes(metodos), tambien se debe
-respetar los contratos de los tipos de datos, si se debe pasar un argumento por ejemplo
-del tipo int, no se puede pasar un String. 
+los demas objetos. Todos deben entender los mismos mensajes y saber responder a ellos, tambien se deben
+respetar los contratos de los tipos de datos, por ejemplo si se debe pasar un argumento del tipo int 
+o una coleccion,no se puede pasar un String, se rompe el contrato. 
 */
