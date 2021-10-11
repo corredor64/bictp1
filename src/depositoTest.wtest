@@ -1,0 +1,41 @@
+import accesorios.*
+import bicicletas.*
+import deposito.*
+
+describe "Creando un deposito"{	
+
+var bici1 = new Bicicleta(rodado=28,largo=150,marca="Olmo",accesorios=[new Farolito()])
+var bici2 = new Bicicleta(rodado=26,largo=110,marca="Legnano",accesorios=[new Farolito(),new Canasto(volumen=8),new MorralDeBici(largo =21,tieneOjoDeGato=true)])
+var bici3 = new Bicicleta(rodado=20,largo=90,marca="Legnano",accesorios=[new MorralDeBici(largo=6,tieneOjoDeGato=false)])
+const deposito1 = new Deposito(colBicis = [bici1,bici2,bici3])
+	
+	test "Bicicletas rapidas" {
+		assert.equals(deposito1.bicisRapidas(),[bici1,bici2])
+	}
+	test "Marcas de Bicicletas" {
+		assert.equals(deposito1.marcas(),#{"Olmo","Legnano"})
+	}
+	test "Es deposito nocturno"{
+		assert.notThat(deposito1.esNocturno())	
+	}
+	
+	test "tiene Bicicleta para llevar 10 y 50 kilos"{
+		assert.that(deposito1.biciParaLlevar(10))
+		assert.notThat(deposito1.biciParaLlevar(50))
+	}
+	test "La marca de la bicicleta mas rapida"{
+		assert.equals(deposito1.biciMasRapida(),"Olmo")
+	}
+	test "Carga total de las bicicletas largas"{
+		assert.equals(0,deposito1.cargaTotalDBLargas())
+	}
+	test "Cantidad de Bicicletas sin accesorios"{
+		assert.equals(0,deposito1.biSinAccesorios())
+	}
+	test "Cuales son bicicletas compañeras de bici4"{
+		var bici4 = new Bicicleta(rodado=29,largo=140,marca="Olmo")
+		assert.equals(deposito1.companieras(bici4),[bici1])
+		
+	}	
+	
+}
